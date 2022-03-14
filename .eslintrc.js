@@ -1,4 +1,7 @@
 module.exports = {
+  globals: {
+    JSX: true
+  },
   env: {
     browser: true,
     es2021: true,
@@ -49,12 +52,12 @@ module.exports = {
     ],
     // https://github.com/microsoft/TypeScript/issues/41882#issuecomment-849849503
     'react/jsx-uses-react': 'off',
-    'react/react-in-jsx-scope': 'off',    
+    'react/react-in-jsx-scope': 'off',
     // use @typescript-eslint/no-unused-vars instead of no-unused-vars
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': ['error'],
     // https://stackoverflow.com/questions/63961803/eslint-says-all-enums-in-typescript-app-are-already-declared-in-the-upper-scope
-    'no-shadow': 'off',    
+    'no-shadow': 'off',
     '@typescript-eslint/no-shadow': ['error'],
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/function-component-definition.md
     'react/function-component-definition': [
@@ -74,7 +77,6 @@ module.exports = {
       { blankLine: 'always', prev: '*', next: ['const', 'let', 'var'] },
       { blankLine: 'always', prev: ['const', 'let', 'var'], next: '*' },
       { blankLine: 'any', prev: ['const', 'let', 'var'], next: ['const', 'let', 'var'] }
-    ],
-    
+    ]
   }
 };
