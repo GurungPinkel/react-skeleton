@@ -28,7 +28,15 @@ module.exports = {
   rules: {
     // always require curly
     curly: ['error', 'all'],
-    // 'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    /* 
+      Allow import fromd devDependencies for webpack configs and unit tests
+      https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-extraneous-dependencies.md
+    */
+    'import/no-extraneous-dependencies': [
+      'error',
+      { devDependencies: ['webpack/**/*.js', '**/*.test.tsx', '**/*.test.ts'] }
+    ],
+
     // we dont want to necessarily always have default export.
     'import/prefer-default-export': 'off',
     // https://reactjs.org/docs/hooks-rules.html#eslint-plugin
