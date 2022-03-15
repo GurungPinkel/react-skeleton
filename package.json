@@ -4,7 +4,7 @@
   "description": "All docs here: https://app.clickup.com/14250103/v/dc/djw3q-567/djw3q-367",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=development webpack serve --config webpack/webpack.local.js",
+    "start": "NODE_ENV=LOCAL webpack serve --config webpack/webpack.local.js",
     "prepare": "husky install"
   },
   "repository": {
@@ -30,6 +30,7 @@
     "@typescript-eslint/parser": "^5.14.0",
     "babel-loader": "^8.2.3",
     "copy-webpack-plugin": "^10.2.4",
+    "dotenv": "^16.0.0",
     "eslint": "^8.11.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
@@ -54,5 +55,5 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "eslint --cache --fix",
     "*.{js,jsx,ts,tsx,css,scss,md}": "prettier --write"
-}
+  }
 }
