@@ -3,6 +3,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const dotenv = require('dotenv');
 
+// const isProduction = process.env.NODE_ENV === 'PRODUCTION';
 let envFile;
 
 if (process.env.NODE_ENV === 'PRODUCTION') {
@@ -31,6 +32,22 @@ module.exports = {
     rules: [
       {
         oneOf: [
+          {
+            test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+            type: 'asset',
+            parser: {
+              dataUrlCondition: {
+                maxSize: parseInt(process.env.WEBPACK_MAX_INLINE_SIZE, 10) || 5000 // Images less than 5kb will be inline
+              }
+            },
+            generator: {
+              filename: 'static/images/[name].[hash:8][ext]'
+            }
+          },
+          {
+            test: /\.svg/,
+            type: 'asset/inline'
+          },
           {
             test: /\.(tsx|mjs|jsx|ts|js)$/,
             exclude: /node_modules/,
